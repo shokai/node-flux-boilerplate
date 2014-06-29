@@ -11,7 +11,7 @@ chat_send = ->
 $ ->
   console.log 'start'
   $('#btn_send').click chat_send
-  $('#input_message').keyup (e) ->
+  $('#input_message').keydown (e) ->
     return unless e.keyCode is 13
     chat_send()
 
