@@ -1,5 +1,9 @@
 extends layout
 
+block scripts
+  script(src="/socket.io/socket.io.js")
+  script(src="/js/index.coffee" type="text/coffeescript")
+
 block content
   h1= title
   p
