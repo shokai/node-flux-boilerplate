@@ -39,6 +39,9 @@ mongoose.connect mongodb_uri, (err) ->
   server = app.listen process.env.PORT
   debug "server start - port:#{process.env.PORT}"
 
-  ## Socket.IO
+  ## Socket.IO ##
   io = require('socket.io').listen server
   app.set 'socket.io', io
+
+  for name in ['chat']
+    require(path.resolve 'io', name)(app)

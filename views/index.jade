@@ -7,7 +7,7 @@ block scripts
 block content
   h1= title
   p
-    input(type="text" value="NoName")
-    input(type="text" value="hello!!" size=40)
-    input(type="button" value="send")
+    input(type="text" value="NoName" id="input_name")
+    input(type="text" value="hello!!" size=40 id="input_message")
+    input(type="button" value="send" id="btn_send")
   ul#logs
