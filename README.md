@@ -1,8 +1,8 @@
 Express Template (Chat App)
 ===========================
 
-- https://express-chat-template.herokuapp.com/
-- https://github.com/shokai/express-template
+- [demo](https://express-chat-template.herokuapp.com/)
+- [source code](https://github.com/shokai/express-template)
 
 
 REQUIREMENTS
@@ -32,3 +32,8 @@ config
     % heroku addons:add mongolab
     % heroku config:set "DEBUG=chat*"
     % heroku config:set NODE_ENV=production
+
+logs
+
+    % heroku logs --num 300
+    % heroku logs --tail
