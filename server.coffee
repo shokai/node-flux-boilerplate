@@ -21,7 +21,7 @@ app.set 'package', package_json
 ## model & session ##
 mongodb_uri = process.env.MONGOLAB_URI or
               process.env.MONGOHQ_URL or
-              'mongodb://localhost/node-chat'
+              'mongodb://localhost/express-template'
 
 mongoose.connect mongodb_uri, (err) ->
   if err
