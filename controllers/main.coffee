@@ -1,4 +1,3 @@
-util     = require 'util'
 debug    = require('debug')('chat:controller:main')
 mongoose = require 'mongoose'
 Message  = mongoose.model 'Message'
@@ -16,9 +15,9 @@ module.exports = (app) ->
 
       args =
         title: config.title
-        messages: msgs
+        chat:
+          messages: msgs
         app:
-          url: "#{req.protocol}://#{req.headers.host}"
           homepage: package_json.homepage
 
       return res.render 'index', args

@@ -11,5 +11,5 @@ block content
     input(type="text" value="hello!!" size=40 id="input_message")
     input(type="button" value="send" id="btn_send")
   ul#logs
-    - for msg in messages
+    - for msg in chat.messages
       li= msg.from+" : "+msg.body
