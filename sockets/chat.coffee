@@ -16,7 +16,7 @@ module.exports = (app) ->
         debug err if err
       io.sockets.emit 'chat', data  # broadcast
       return
-    
+
     io.sockets.emit 'chat', {
       from: "server"
       body: "hello new client (id:#{socket.id})"

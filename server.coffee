@@ -18,7 +18,7 @@ app.set 'config', config
 app.set 'package', package_json
 
 
-## model & session ##
+## MongoDB ##
 mongodb_uri = process.env.MONGOLAB_URI or
               process.env.MONGOHQ_URL or
               'mongodb://localhost/express-template'
@@ -44,4 +44,4 @@ mongoose.connect mongodb_uri, (err) ->
   app.set 'socket.io', io
 
   for name in ['chat']
-    require(path.resolve 'io', name)(app)
+    require(path.resolve 'sockets', name)(app)

@@ -31,7 +31,7 @@ module.exports = (grunt) ->
           { expand: yes, cwd: './', src: [ '*.coffee' ] }
           { expand: yes, cwd: 'models/', src: [ '**/*.coffee' ] }
           { expand: yes, cwd: 'controllers/', src: [ '**/*.coffee' ] }
-          { expand: yes, cwd: 'io/', src: [ '**/*.coffee' ] }
+          { expand: yes, cwd: 'sockets/', src: [ '**/*.coffee' ] }
           { expand: yes, cwd: 'public/', src: [ '**/*.coffee' ] }
         ]
 
@@ -51,7 +51,7 @@ module.exports = (grunt) ->
         files: [
           'models/**/*.coffee'
           'controllers/**/*.coffee'
-          'io/**/*.coffee'
+          'sockets/**/*.coffee'
           'public/**/*.{coffee,js,jade}'
           'tests/**/*.coffee'
         ]
