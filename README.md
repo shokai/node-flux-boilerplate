@@ -23,17 +23,28 @@ RUN
 DEPLOY
 ------
 
+### create app
+
     % heroku create
     % git push heroku master
 
-config
+### config
 
     % heroku config:add TZ=Asia/Tokyo
-    % heroku addons:add mongolab
     % heroku config:set "DEBUG=chat*"
     % heroku config:set NODE_ENV=production
 
-logs
+### enable MongoDB plug-in
+
+    % heroku addons:add mongolab
+    # or
+    % heroku addons:add mongohq
+
+### enable WebSocket
+
+    % heroku labs:enable websockets
+
+### logs
 
     % heroku logs --num 300
     % heroku logs --tail
