@@ -19,6 +19,11 @@ RUN
     % PORT=3000 DEBUG=chat* npm start
 
 
+TEST & LINT
+-----------
+
+    % npm test
+
 
 DEPLOY
 ------
