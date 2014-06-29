@@ -12,7 +12,7 @@ REQUIREMENTS
 - MongoDB v2.x
 
 
-Run
+RUN
 ---
 
     % npm install
