@@ -1,4 +1,4 @@
-debug    = require('debug')('chat:io')
+debug    = require('debug')('chat:sockets')
 mongoose = require 'mongoose'
 
 Message = mongoose.model 'Message'
