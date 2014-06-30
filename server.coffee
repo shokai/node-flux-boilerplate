@@ -16,6 +16,18 @@ app.set 'view engine', 'jade'
 app.use express.static path.resolve 'public'
 app.set 'config', config
 app.set 'package', package_json
+http = require('http').Server(app)
+io = require('socket.io')(http)
+app.set 'socket.io', io
+
+
+## load controllers, models, socket.io ##
+for name in ['message']
+  require path.resolve 'models', name
+for name in ['main']
+  require(path.resolve 'controllers', name)(app)
+for name in ['chat']
+  require(path.resolve 'sockets', name)(app)
 
 
 ## MongoDB ##
@@ -28,20 +40,10 @@ mongoose.connect mongodb_uri, (err) ->
     console.error "mongoose connect failed"
     console.error err
     process.exit 1
+    return
 
-  ## load controllers & models ##
-  for name in ['message']
-    require path.resolve 'models', name
-  for name in ['main']
-    require(path.resolve 'controllers', name)(app)
+  debug "connect MongoDB"
 
   ## start server ##
-  server = app.listen process.env.PORT
-  debug "server start - port:#{process.env.PORT}"
-
-  ## Socket.IO ##
-  io = require('socket.io').listen server
-  app.set 'socket.io', io
-
-  for name in ['chat']
-    require(path.resolve 'sockets', name)(app)
+  http.listen process.env.PORT, ->
+    debug "server start - port:#{process.env.PORT}"
