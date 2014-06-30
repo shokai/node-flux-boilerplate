@@ -22,12 +22,15 @@ app.set 'socket.io', io
 
 
 ## load controllers, models, socket.io ##
-for name in ['message']
-  require path.resolve 'models', name
-for name in ['main']
-  require(path.resolve 'controllers', name)(app)
-for name in ['chat']
-  require(path.resolve 'sockets', name)(app)
+components =
+  models:      [ 'message' ]
+  controllers: [ 'main' ]
+  sockets:     [ 'chat' ]
+
+for type, items of components
+  for item in items
+    debug "load #{type}/#{item}"
+    require(path.resolve type, item)(app)
 
 
 ## MongoDB ##
