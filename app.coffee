@@ -21,7 +21,7 @@ app.disable 'x-powered-by'
 app.set 'view engine', 'jade'
 app.use express.static path.resolve 'public'
 app.use cookieParser()
-app.use bodyParser()
+app.use bodyParser.urlencoded(extended: true)
 
 http = require('http').Server(app)
 io = require('socket.io')(http)
