@@ -16,4 +16,4 @@ module.exports = (app) ->
     .limit num
     .exec callback
 
-  Message = mongoose.model 'Message', messageSchema
+  mongoose.model 'Message', messageSchema
