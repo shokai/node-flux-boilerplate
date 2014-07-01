@@ -34,6 +34,11 @@ TEST & LINT
 
     % npm test
 
+or
+
+    % npm i grunt-cli -g
+    % grunt
+
 
 DEPLOY
 ------
