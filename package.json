@@ -1,6 +1,6 @@
 {
   "name": "express-template",
-  "publish": false,
+  "private": true,
   "version": "0.0.1",
   "description": "Express 4.4.x + CoffeeScript Template",
   "main": "server.coffee",
