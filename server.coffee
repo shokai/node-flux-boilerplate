@@ -12,6 +12,7 @@ process.env.PORT ||= 3000
 
 ## server setup ##
 app = express()
+app.disable 'x-powered-by'
 app.set 'view engine', 'jade'
 app.use express.static path.resolve 'public'
 app.set 'config', config
