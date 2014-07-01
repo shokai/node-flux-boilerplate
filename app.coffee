@@ -9,16 +9,23 @@ package_json = require path.resolve 'package.json'
 process.env.PORT ||= 3000
 
 
+## express modules
+bodyParser   = require 'body-parser'
+cookieParser = require 'cookie-parser'
+
 ## server setup ##
 module.exports = app = express()
 app.disable 'x-powered-by'
 app.set 'view engine', 'jade'
 app.use express.static path.resolve 'public'
-app.set 'config', config
-app.set 'package', package_json
+app.use cookieParser()
+app.use bodyParser()
+
 http = require('http').Server(app)
 io = require('socket.io')(http)
 app.set 'socket.io', io
+app.set 'config', config
+app.set 'package', package_json
 
 
 ## load controllers, models, socket.io ##

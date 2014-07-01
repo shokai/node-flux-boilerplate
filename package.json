@@ -11,7 +11,9 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "*",
     "coffee-script": "^1.7",
+    "cookie-parser": "*",
     "debug": "*",
     "express": "^4.4",
     "jade": "*",
