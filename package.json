@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "Express 4.4.x + CoffeeScript Template",
-  "main": "server.coffee",
+  "main": "app.coffee",
   "scripts": {
     "start": "coffee app.coffee",
     "test": "grunt test"
