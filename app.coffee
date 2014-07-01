@@ -3,7 +3,6 @@ debug    = require('debug')('chat:app')
 express  = require 'express'
 mongoose = require 'mongoose'
 
-
 ## config ##
 config       = require path.resolve 'config.json'
 package_json = require path.resolve 'package.json'
@@ -11,7 +10,7 @@ process.env.PORT ||= 3000
 
 
 ## server setup ##
-app = express()
+module.exports = app = express()
 app.disable 'x-powered-by'
 app.set 'view engine', 'jade'
 app.use express.static path.resolve 'public'
@@ -47,6 +46,9 @@ mongoose.connect mongodb_uri, (err) ->
     return
 
   debug "connect MongoDB"
+
+  if process.argv[1] isnt __filename
+    return   # if load as a module, do not start HTTP server
 
   ## start server ##
   http.listen process.env.PORT, ->

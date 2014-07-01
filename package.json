@@ -5,7 +5,7 @@
   "description": "Express 4.4.x + CoffeeScript Template",
   "main": "server.coffee",
   "scripts": {
-    "start": "coffee server.coffee",
+    "start": "coffee app.coffee",
     "test": "grunt test"
   },
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
