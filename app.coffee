@@ -1,3 +1,5 @@
+'use strict'
+
 path     = require 'path'
 debug    = require('debug')('chat:app')
 express  = require 'express'
