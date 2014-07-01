@@ -49,6 +49,7 @@ module.exports = (grunt) ->
         interrupt: yes
       dist:
         files: [
+          '*.coffee'
           'models/**/*.coffee'
           'controllers/**/*.coffee'
           'sockets/**/*.coffee'
