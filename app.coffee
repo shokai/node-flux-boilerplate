@@ -12,8 +12,11 @@ process.env.PORT ||= 3000
 
 
 ## express modules
-bodyParser   = require 'body-parser'
 cookieParser = require 'cookie-parser'
+session      = require 'express-session'
+MongoStore   = require('connect-mongo')(session)
+bodyParser   = require 'body-parser'
+
 
 ## server setup ##
 module.exports = app = express()
@@ -35,6 +38,24 @@ mongodb_uri = process.env.MONGOLAB_URI or
               process.env.MONGOHQ_URL or
               'mongodb://localhost/express-template'
 
+app.use session
+  secret: (process.env.SESSION_SECRET or 'うどん居酒屋 かずどん')
+  store: new MongoStore
+    url: mongodb_uri
+
+
+## load controllers, models, socket.io ##
+components =
+  models:      [ 'message' ]
+  controllers: [ 'main' ]
+  sockets:     [ 'chat' ]
+
+for type, items of components
+  for item in items
+    debug "load #{type}/#{item}"
+    require(path.resolve type, item)(app)
+
+
 mongoose.connect mongodb_uri, (err) ->
   if err
     console.error "mongoose connect failed"
@@ -44,25 +65,9 @@ mongoose.connect mongodb_uri, (err) ->
 
   debug "connect MongoDB"
 
-  ## load controllers, models, socket.io ##
-  components =
-    models:      [ 'message' ]
-    controllers: [ 'main' ]
-    sockets:     [ 'chat' ]
-
-  for type, items of components
-    for item in items
-      debug "load #{type}/#{item}"
-      require(path.resolve type, item)(app)
-
-  app.emit 'load'
-
   if process.argv[1] isnt __filename
     return   # if load as a module, do not start HTTP server
 
   ## start server ##
   http.listen process.env.PORT, ->
     debug "server start - port:#{process.env.PORT}"
-
-  app.emit 'start'
-  return
