@@ -4,6 +4,8 @@ Express Template (Chat App)
 - [demo](https://express-chat-template.herokuapp.com/)
 - [source code](https://github.com/shokai/express-template)
 
+[![Build Status](https://travis-ci.org/shokai/express-template.svg?branch=master)](https://travis-ci.org/shokai/express-template)
+
 
 REQUIREMENTS
 ------------
