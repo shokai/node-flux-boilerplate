@@ -30,18 +30,6 @@ app.set 'config', config
 app.set 'package', package_json
 
 
-## load controllers, models, socket.io ##
-components =
-  models:      [ 'message' ]
-  controllers: [ 'main' ]
-  sockets:     [ 'chat' ]
-
-for type, items of components
-  for item in items
-    debug "load #{type}/#{item}"
-    require(path.resolve type, item)(app)
-
-
 ## MongoDB ##
 mongodb_uri = process.env.MONGOLAB_URI or
               process.env.MONGOHQ_URL or
@@ -55,6 +43,18 @@ mongoose.connect mongodb_uri, (err) ->
     return
 
   debug "connect MongoDB"
+
+  ## load controllers, models, socket.io ##
+  components =
+    models:      [ 'message' ]
+    controllers: [ 'main' ]
+    sockets:     [ 'chat' ]
+
+  for type, items of components
+    for item in items
+      debug "load #{type}/#{item}"
+      require(path.resolve type, item)(app)
+
 
   if process.argv[1] isnt __filename
     return   # if load as a module, do not start HTTP server
