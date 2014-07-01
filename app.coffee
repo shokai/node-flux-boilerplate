@@ -55,6 +55,7 @@ mongoose.connect mongodb_uri, (err) ->
       debug "load #{type}/#{item}"
       require(path.resolve type, item)(app)
 
+  app.emit 'load'
 
   if process.argv[1] isnt __filename
     return   # if load as a module, do not start HTTP server
@@ -62,3 +63,6 @@ mongoose.connect mongodb_uri, (err) ->
   ## start server ##
   http.listen process.env.PORT, ->
     debug "server start - port:#{process.env.PORT}"
+
+  app.emit 'start'
+  return
