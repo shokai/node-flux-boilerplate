@@ -8,7 +8,8 @@ Express Template (Chat App)
 
 - express 4.4
 - socket.io 1.0
-- mongoose 3.8
+- mongoose 3.8 + connect-mongo
+- jade
 - coffee-script on browser
 - grunt + coffeelint + mocha + supertest
 - Heroku
