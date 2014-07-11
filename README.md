@@ -69,3 +69,11 @@ DEPLOY
 
     % heroku logs --num 300
     % heroku logs --tail
+
+
+DEPLOY HOOK
+-----------
+
+edit `.travis.yml`.
+
+- deploy to Heroku when Travis CI passed
