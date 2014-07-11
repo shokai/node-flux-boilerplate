@@ -6,3 +6,8 @@ services:
 notifications:
   slack:
     secure: DPyNYP7tIGR+3sHHopXSyKcyxHT3PrLd24ocePmi5fXiEN6ShD5lJaeqvJLJzwRxWu/wqeX39uREteknO5MAocXEiKPlgLnJZvh9bu5xfUlAx7gCir2NzouWaK9nBcl59khaGGc4Nw3KPt1cEX5nv77EJFjLSWVHsa1jch3oON0=
+deploy:
+  provider: heroku
+  api_key:
+    secure: fZQUroJJJVuIUcf0z8ZekZ4VR5BOeLVzs/qDJR4YWKw/f/EX/g0RkHspbeVbZYpdjzU8RSKVxwCZdrE1ZnwbtGkzGGLk1YyaNeaDnrUYx6yDoRLa4sE3kyaAMHLf3lLpg5oyT9sZarawJcHtG9BU444BNljvHdP+mQnH6AMZSh4=
+  app: express-chat-template
