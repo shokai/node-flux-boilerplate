@@ -28,6 +28,7 @@ module.exports = (grunt) ->
           level: 'ignore'
       dist:
         files: [
+          { expand: yes, cwd: 'tests/', src: [ '*.coffee' ] }
           { expand: yes, cwd: './', src: [ '*.coffee' ] }
           { expand: yes, cwd: 'models/', src: [ '**/*.coffee' ] }
           { expand: yes, cwd: 'controllers/', src: [ '**/*.coffee' ] }
