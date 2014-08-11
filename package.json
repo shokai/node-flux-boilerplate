@@ -30,6 +30,7 @@
     "grunt-coffeelint": "*",
     "grunt-contrib-watch": "*",
     "grunt-notify": "*",
+    "grunt-jsonlint": "*",
     "grunt-simple-mocha": "*",
     "mocha": "*",
     "supertest": "*"
