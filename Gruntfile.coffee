@@ -35,14 +35,11 @@ module.exports = (grunt) ->
         no_unnecessary_fat_arrows:
           level: 'ignore'
       dist:
-        files: [
-          { expand: yes, cwd: 'tests/', src: [ '*.coffee' ] }
-          { expand: yes, cwd: './', src: [ '*.coffee' ] }
-          { expand: yes, cwd: 'models/', src: [ '**/*.coffee' ] }
-          { expand: yes, cwd: 'controllers/', src: [ '**/*.coffee' ] }
-          { expand: yes, cwd: 'sockets/', src: [ '**/*.coffee' ] }
-          { expand: yes, cwd: 'public/', src: [ '**/*.coffee' ] }
-        ]
+        files:
+          src: [
+            '**/*.coffee'
+            '!node_modules/**'
+          ]
 
     simplemocha:
       options:
