@@ -5,6 +5,7 @@ Express Template (Chat App)
 - [source code](https://github.com/shokai/express-template)
 
 [![Build Status](https://travis-ci.org/shokai/express-template.svg?branch=master)](https://travis-ci.org/shokai/express-template)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 - express 4.4
 - socket.io 1.0

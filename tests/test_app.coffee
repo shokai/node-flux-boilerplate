@@ -4,7 +4,7 @@ require path.resolve 'tests', 'test_helper'
 assert   = require 'assert'
 request  = require 'supertest'
 mongoose = require 'mongoose'
-app      = require path.resolve 'app'
+app      = require path.resolve 'app.coffee'
 
 
 describe 'Express Template (Chat App)', ->

@@ -1,0 +1,14 @@
+{
+  "name": "Express Template",
+  "description": "Express Template (Chat App)",
+  "website": "https://github.com/shokai/express-template",
+  "success_url": "/",
+  "addons": [
+    "mongolab"
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "DEBUG": "chat:*",
+    "TZ": "Asia/Tokyo"
+  }
+}
