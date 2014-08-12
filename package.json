@@ -28,6 +28,7 @@
     "grunt": "*",
     "grunt-cli": "*",
     "grunt-coffeelint": "*",
+    "grunt-contrib-csslint": "*",
     "grunt-contrib-watch": "*",
     "grunt-notify": "*",
     "grunt-jsonlint": "*",

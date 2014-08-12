@@ -5,15 +5,29 @@ module.exports = (grunt) ->
   require 'coffee-errors'
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-csslint'
   grunt.loadNpmTasks 'grunt-jsonlint'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-simple-mocha'
   grunt.loadNpmTasks 'grunt-notify'
 
-  grunt.registerTask 'test',    [ 'jsonlint', 'coffeelint', 'simplemocha' ]
+  grunt.registerTask 'test', [
+    'csslint'
+    'jsonlint'
+    'coffeelint'
+    'simplemocha'
+  ]
+
   grunt.registerTask 'default', [ 'test', 'watch' ]
 
   grunt.initConfig
+
+    csslint:
+      strict:
+        src: [
+          '**/*.css'
+          '!node_modules/**'
+        ]
 
     jsonlint:
       config:
@@ -25,7 +39,7 @@ module.exports = (grunt) ->
     coffeelint:
       options:
         max_line_length:
-          value: 79
+          value: 119
         indentation:
           value: 2
         newlines_after_classes:
