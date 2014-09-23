@@ -8,7 +8,7 @@ Express Template (Chat App)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 - express 4.4
-- socket.io 1.0
+- socket.io 1.1
 - mongoose 3.8 + connect-mongo
 - jade
 - coffee-script on browser
