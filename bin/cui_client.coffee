@@ -1,4 +1,5 @@
-url = process.env[2] or "http://localhost:3000"
+url = process.argv[2] or "http://localhost:3000"
+console.log url
 
 socket = require('socket.io-client').connect url
 
