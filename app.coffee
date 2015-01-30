@@ -40,6 +40,8 @@ mongodb_uri = process.env.MONGOLAB_URI or
 
 app.use session
   secret: (process.env.SESSION_SECRET or 'うどん居酒屋 かずどん')
+  resave: false
+  saveUninitialized: true
   store: new MongoStore
     url: mongodb_uri
 
