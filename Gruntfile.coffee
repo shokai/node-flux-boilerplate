@@ -5,11 +5,18 @@ module.exports = (grunt) ->
   require 'coffee-errors'
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-browserify'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-csslint'
   grunt.loadNpmTasks 'grunt-jsonlint'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-simple-mocha'
   grunt.loadNpmTasks 'grunt-notify'
+
+  grunt.registerTask 'build', [
+    'browserify',
+    'uglify' if process.env.NODE_ENV is 'production'
+  ].filter (i) -> i?
 
   grunt.registerTask 'test', [
     'csslint'
@@ -18,9 +25,24 @@ module.exports = (grunt) ->
     'simplemocha'
   ]
 
-  grunt.registerTask 'default', [ 'test', 'watch' ]
+  grunt.registerTask 'default', [ 'build', 'test', 'watch' ]
 
   grunt.initConfig
+
+    browserify:
+      build:
+        options:
+          browserifyOptions:
+            extensions: ['.coffee', '.cjsx']
+            transform: 'coffee-reactify'
+            debug: process.env.NODE_ENV isnt 'production'
+        files:
+          'public/js/bundle.js': [ 'client/js/**.{js,jsx,cjsx,coffee}' ]
+
+    uglify:
+      dist:
+        files:
+          'public/js/bundle.js': 'public/js/bundle.js'
 
     csslint:
       strict:
@@ -69,7 +91,8 @@ module.exports = (grunt) ->
         interrupt: yes
       dist:
         files: [
-          '**/*.{coffee,js,jade}'
+          '**/*.{coffee,jsx,cjsx,js,jade}'
           '!node_modules/**'
+          '!public/js/**'
         ]
-        tasks: [ 'test' ]
+        tasks: [ 'build', 'test' ]

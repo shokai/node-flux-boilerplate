@@ -22,6 +22,7 @@ bodyParser   = require 'body-parser'
 module.exports = router = express()
 router.disable 'x-powered-by'
 router.set 'view engine', 'jade'
+router.set 'views', path.join __dirname, 'views'
 router.use express.static path.resolve 'public'
 router.use cookieParser()
 router.use bodyParser.urlencoded(extended: true)
@@ -56,7 +57,7 @@ components =
 for type, items of components
   for item in items
     debug "load #{type}/#{item}"
-    require(path.resolve type, item)(router)
+    require(path.join __dirname, type, item)(router)
 
 
 mongoose.connect mongodb_uri, (err) ->

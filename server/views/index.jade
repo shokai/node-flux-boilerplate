@@ -1,0 +1,10 @@
+extends layout
+
+block scripts
+  script.
+    var title = "#{title}";
+    var logs = JSON.parse(unescape("!{escape(JSON.stringify(chat.messages))}"));
+  script(src="/js/bundle.js")
+
+block content
+  div#app-container

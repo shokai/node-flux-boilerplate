@@ -19,5 +19,6 @@ module.exports = (router) ->
           messages: msgs
         app:
           homepage: pkg.homepage
+          description: pkg.description
 
       return res.render 'index', args
