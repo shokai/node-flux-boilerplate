@@ -1,6 +1,6 @@
 mongoose = require 'mongoose'
 
-module.exports = (app) ->
+module.exports = (router) ->
 
   messageSchema = new mongoose.Schema
     from: String

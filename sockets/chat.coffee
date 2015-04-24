@@ -3,8 +3,8 @@ mongoose = require 'mongoose'
 
 Message = mongoose.model 'Message'
 
-module.exports = (app) ->
-  io = app.get 'socket.io'
+module.exports = (router) ->
+  io = router.get 'socket.io'
 
   io.on 'connection', (socket) ->
     debug 'new connection'

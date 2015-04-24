@@ -2,12 +2,12 @@ debug    = require('debug')('chat:controller:main')
 mongoose = require 'mongoose'
 Message  = mongoose.model 'Message'
 
-module.exports = (app) ->
+module.exports = (router) ->
 
-  config       = app.get 'config'
-  package_json = app.get 'package'
+  config = router.get 'config'
+  pkg    = router.get 'package'
 
-  app.get '/', (req, res) ->
+  router.get '/', (req, res) ->
     Message.latest 100, (err, msgs) ->
       if err
         debug err
@@ -18,6 +18,6 @@ module.exports = (app) ->
         chat:
           messages: msgs
         app:
-          homepage: package_json.homepage
+          homepage: pkg.homepage
 
       return res.render 'index', args
