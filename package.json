@@ -49,5 +49,8 @@
   "bugs": {
     "url": "https://github.com/shokai/express-template/issues"
   },
-  "homepage": "https://github.com/shokai/express-template"
+  "homepage": "https://github.com/shokai/express-template",
+  "directories": {
+    "test": "tests"
+  }
 }

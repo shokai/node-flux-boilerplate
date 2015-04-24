@@ -7,9 +7,9 @@ Express Template (Chat App)
 [![Build Status](https://travis-ci.org/shokai/express-template.svg?branch=master)](https://travis-ci.org/shokai/express-template)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-- express 4.11.x
+- express 4.12.x
 - socket.io 1.3.x
-- mongoose 3.8.x + connect-mongo
+- mongoose 4.0.x + connect-mongo
 - jade
 - coffee-script 1.9.x on browser
 - grunt + coffeelint + mocha + supertest
