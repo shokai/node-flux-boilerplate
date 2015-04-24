@@ -62,10 +62,6 @@ DEPLOY
     # or
     % heroku addons:add mongohq
 
-### enable WebSocket
-
-    % heroku labs:enable websockets
-
 ### logs
 
     % heroku logs --num 300
