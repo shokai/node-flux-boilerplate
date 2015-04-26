@@ -58,5 +58,9 @@
   "homepage": "https://github.com/shokai/express-template",
   "directories": {
     "test": "tests"
+  },
+  "engines": {
+    "node": "0.12.x",
+    "npm": "2.7.x"
   }
 }
