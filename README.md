@@ -7,11 +7,12 @@ Express Template (Chat App)
 [![Build Status](https://travis-ci.org/shokai/express-template.svg?branch=master)](https://travis-ci.org/shokai/express-template)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
+- coffee-script
 - express 4.12.x
 - socket.io 1.3.x
-- mongoose 4.0.x + connect-mongo
+- React + Fluxxor + Browserify
+- mongoose + connect-mongo
 - jade
-- coffee-script 1.9.x on browser
 - grunt + coffeelint + mocha + supertest
 - Heroku
 - Travis CI
@@ -20,7 +21,7 @@ Express Template (Chat App)
 REQUIREMENTS
 ------------
 
-- Node.js v0.10.x
+- Node.js v0.12.x
 - MongoDB v2.x
 
 

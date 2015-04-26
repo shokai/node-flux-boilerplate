@@ -12,9 +12,9 @@ module.exports = (router) ->
     socket.on 'chat', (data) ->
       debug data
       message = new Message data
-      message.save (err) ->
-        debug err if err
-      io.sockets.emit 'chat', data  # broadcast
+      message.save (err, data) ->
+        return debug err if err
+        io.sockets.emit 'chat', data  # broadcast
       return
 
     io.sockets.emit 'chat', {
