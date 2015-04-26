@@ -1,27 +1,30 @@
-## Component: App
+## View: Main
 
 React   = require 'react'
 Fluxxor = require 'fluxxor'
 
-ChatInput = require './chat_input.cjsx'
-ChatLog   = require './chat_log.cjsx'
+ChatInput    = require './chat_input.cjsx'
+ChatLog      = require './chat_log.cjsx'
+SocketStatus = require './socket_status.cjsx'
 
 module.exports = React.createClass
   mixins: [
     Fluxxor.FluxMixin React
-    Fluxxor.StoreWatchMixin 'ChatLog', 'ChatInput'
+    Fluxxor.StoreWatchMixin 'Chat', 'Socket'
   ]
 
   getStateFromFlux: ->
-    chatlog: @getFlux().store('ChatLog').getState()
-    chatinput: @getFlux().store('ChatInput').getState()
+    chat:   @getFlux().store('Chat').getState()
+    socket: @getFlux().store('Socket').getState()
 
   render: ->
     <div>
       <h1>{title}</h1>
+      <SocketStatus
+       status={@state.socket.status} />
       <ChatInput
-        name={@state.chatinput.name}
-        body={@state.chatinput.body} />
+       name={@state.chat.name}
+       body={@state.chat.body} />
       <ChatLog
-        logs={@state.chatlog.logs} />
+       logs={@state.chat.logs} />
     </div>

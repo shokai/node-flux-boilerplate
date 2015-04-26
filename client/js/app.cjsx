@@ -6,13 +6,11 @@ app =
   socket: socket
   pkg: require '../../package.json'
 
-app.flux = new Fluxxor.Flux {
-  ChatLog:   new (require('./stores/chat_log')(app))
-  ChatInput: new (require('./stores/chat_input')(app))
-}, {
-  chatLog:   require('./actions/chat_log')(app)
-  chatInput: require('./actions/chat_input')(app)
-}
+##  flux = stores, actions
+app.flux = new Fluxxor.Flux
+  Chat:   new (require('./stores/chat')(app))
+  Socket: new (require('./stores/socket')(app))
+, require('./actions/actions')(app)
 
 require('./sockets/chat')(app)
 
