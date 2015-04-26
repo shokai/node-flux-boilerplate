@@ -89,6 +89,7 @@ module.exports = (grunt) ->
     watch:
       options:
         interrupt: yes
+        livereload: yes
       dist:
         files: [
           '**/*.{coffee,jsx,cjsx,js,jade}'
