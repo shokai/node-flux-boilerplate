@@ -7,7 +7,7 @@
   "scripts": {
     "start": "coffee server/app.coffee",
     "build": "grunt build",
-    "test":  "grunt test",
+    "test": "grunt test",
     "watch": "grunt watch"
   },
   "author": "Sho Hashimoto <hashimoto@shokai.org>",

@@ -6,14 +6,16 @@ app =
   socket: socket
   pkg: require '../../package.json'
 
-##  flux = stores, actions
+## flux = stores, actions
 app.flux = new Fluxxor.Flux
   Chat:   new (require('./stores/chat')(app))
   Socket: new (require('./stores/socket')(app))
 , require('./actions/actions')(app)
 
+## Other Components
 require('./sockets/chat')(app)
 
+## View
 View = require './views/main'
 
 React.render <View flux={app.flux} />
