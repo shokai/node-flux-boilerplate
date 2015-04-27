@@ -38,7 +38,7 @@ router.set 'package', pkg
 ## MongoDB ##
 mongodb_uri = process.env.MONGOLAB_URI or
               process.env.MONGOHQ_URL or
-              'mongodb://localhost/express-template'
+              'mongodb://localhost/flux-chat'
 
 router.use session
   secret: (process.env.SESSION_SECRET or 'うどん居酒屋 かずどん')

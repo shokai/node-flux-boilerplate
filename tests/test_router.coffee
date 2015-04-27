@@ -7,7 +7,7 @@ mongoose = require 'mongoose'
 app      = require path.resolve 'server/app.coffee'
 
 
-describe 'Express Template (Chat App)', ->
+describe 'Server', ->
 
   it 'sohuld have index page', (done) ->
     request app

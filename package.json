@@ -1,13 +1,14 @@
 {
-  "name": "express-template",
+  "name": "node-flux-boilerplate",
   "private": true,
   "version": "0.0.1",
-  "description": "Express + React + Fluxxor + Socket.IO + MongoDB + CoffeeScript Template",
+  "description": "react+fluxxor+socket.io chat",
   "main": "server/app.coffee",
   "scripts": {
     "start": "coffee server/app.coffee",
     "build": "grunt build",
-    "test": "grunt test"
+    "test":  "grunt test",
+    "watch": "grunt watch"
   },
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
@@ -43,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/shokai/express-template.git"
+    "url": "git://github.com/shokai/node-flux-boilerplate.git"
   },
   "keywords": [
     "express",
@@ -53,9 +54,9 @@
     "chat"
   ],
   "bugs": {
-    "url": "https://github.com/shokai/express-template/issues"
+    "url": "https://github.com/shokai/node-flux-boilerplate/issues"
   },
-  "homepage": "https://github.com/shokai/express-template",
+  "homepage": "https://github.com/shokai/node-flux-boilerplate",
   "directories": {
     "test": "tests"
   },

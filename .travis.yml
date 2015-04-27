@@ -1,13 +1,15 @@
 language: node_js
 node_js:
-  - "0.12"
+- '0.12'
 services:
-  - mongodb
-notifications:
-  slack:
-    secure: DPyNYP7tIGR+3sHHopXSyKcyxHT3PrLd24ocePmi5fXiEN6ShD5lJaeqvJLJzwRxWu/wqeX39uREteknO5MAocXEiKPlgLnJZvh9bu5xfUlAx7gCir2NzouWaK9nBcl59khaGGc4Nw3KPt1cEX5nv77EJFjLSWVHsa1jch3oON0=
+- mongodb
 deploy:
   provider: heroku
   api_key:
-    secure: fZQUroJJJVuIUcf0z8ZekZ4VR5BOeLVzs/qDJR4YWKw/f/EX/g0RkHspbeVbZYpdjzU8RSKVxwCZdrE1ZnwbtGkzGGLk1YyaNeaDnrUYx6yDoRLa4sE3kyaAMHLf3lLpg5oyT9sZarawJcHtG9BU444BNljvHdP+mQnH6AMZSh4=
-  app: express-chat-template
+    secure: GZAD/tCDCK8szGPbyFFiBELe19+Lc4r6UbT6/IqOzD0x/ZGKfWLjEowowUjMQKfF42NGF/+I9mGpdbydsnIgURz3afevbebmpS2NjVDNtmWGKmF5AyoexqTGrblwW8QiiQo/qwyqy53smgUpZh31u5kjJ5Ky5Dsr5ZU/K67mIM0=
+  app: node-flux-boilerplate
+  on:
+    repo: shokai/node-flux-boilerplate
+notifications:
+  slack:
+    secure: ffnhOHdw1ma3OzSXFzU8J4ISetoyHZbUjlDV6cs0iRtvxR/dL7QmlSvL1vy4ON0zrnSPRlRp5/HQ8iVofc8mIsUFgsbgjJRAHRRkCc2o2V+vDx6USnq8FbdS3Y/DuVSfnee8UQm1nfIxGM1w/l1A/RSFV4zB9vJUcBH+0pJHNw0=

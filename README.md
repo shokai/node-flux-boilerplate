@@ -1,10 +1,11 @@
-Express Template (Chat App)
-===========================
+node-flux-boilerplate
+=====================
+react+fluxxor+socket.io chat
 
-- [demo](https://express-chat-template.herokuapp.com/)
-- [source code](https://github.com/shokai/express-template)
+- [demo](https://node-flux-boilerplate.herokuapp.com/)
+- [source code](https://github.com/shokai/node-flux-boilerplate)
 
-[![Build Status](https://travis-ci.org/shokai/express-template.svg?branch=master)](https://travis-ci.org/shokai/express-template)
+[![Build Status](https://travis-ci.org/shokai/node-flux-boilerplate.svg?branch=master)](https://travis-ci.org/shokai/node-flux-boilerplate)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 - coffee-script
@@ -25,6 +26,15 @@ REQUIREMENTS
 - MongoDB v2.x
 
 
+BUILD CLIENT-JS
+---------------
+
+    % npm install
+    % npm build
+
+    # or
+    % npm run watch
+
 RUN
 ---
 
@@ -37,18 +47,13 @@ TEST & LINT
 
     % npm test
 
-or
-
-    % npm i grunt-cli -g
-    % grunt
-
 
 DEPLOY
 ------
 
 ### create app
 
-    % heroku create
+    % heroku apps:create my-heroku-app-name
     % git push heroku master
 
 ### config

@@ -101,5 +101,6 @@ module.exports = (grunt) ->
       server:
         files: [
           'server/**/*.{coffee,js,json}'
+          'tests/*.{coffee,js}'
         ]
         tasks: [ 'test' ]
