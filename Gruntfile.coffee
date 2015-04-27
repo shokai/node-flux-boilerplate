@@ -25,7 +25,7 @@ module.exports = (grunt) ->
     'simplemocha'
   ]
 
-  grunt.registerTask 'default', [ 'build', 'test', 'watch' ]
+  grunt.registerTask 'default', [ 'build', 'watch' ]
 
   grunt.initConfig
 
@@ -89,11 +89,17 @@ module.exports = (grunt) ->
     watch:
       options:
         interrupt: yes
-        livereload: yes
-      dist:
+
+      client:
+        options:
+          livereload: yes
         files: [
-          '**/*.{coffee,jsx,cjsx,js,jade}'
-          '!node_modules/**'
-          '!public/js/**'
+          'client/**/*.{coffee,jsx,cjsx,js,jade}'
         ]
-        tasks: [ 'build', 'test' ]
+        tasks: [ 'build' ]
+
+      server:
+        files: [
+          'server/**/*.{coffee,js,json}'
+        ]
+        tasks: [ 'test' ]
