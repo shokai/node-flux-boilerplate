@@ -37,7 +37,7 @@ module.exports = (grunt) ->
             transform: 'coffee-reactify'
             debug: process.env.NODE_ENV isnt 'production'
         files:
-          'public/js/bundle.js': [ 'client/js/**.{js,jsx,cjsx,coffee}' ]
+          'public/js/bundle.js': [ 'client/**.{js,jsx,cjsx,coffee}' ]
 
     uglify:
       dist:

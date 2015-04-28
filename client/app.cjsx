@@ -4,7 +4,7 @@ socket  = require('socket.io-client').connect "#{location.protocol}//#{location.
 
 app =
   socket: socket
-  pkg: require '../../package.json'
+  pkg: require '../package.json'
 
 ## flux = stores, actions
 app.flux = new Fluxxor.Flux
