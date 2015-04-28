@@ -5,7 +5,6 @@ Fluxxor = require 'fluxxor'
 
 ChatInput    = require './chat_input.cjsx'
 ChatLog      = require './chat_log.cjsx'
-SocketStatus = require './socket_status.cjsx'
 
 module.exports = React.createClass
   mixins: [
@@ -20,9 +19,7 @@ module.exports = React.createClass
   render: ->
     <div>
       <h1>{title}</h1>
-      <SocketStatus
-       status={@state.socket.status} />
+      <div>socket.io: {@state.socket.status}</div>
       <ChatInput />
-      <ChatLog
-       logs={@state.chat.logs} />
+      <ChatLog logs={@state.chat.logs} />
     </div>

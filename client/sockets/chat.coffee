@@ -7,6 +7,7 @@ module.exports = (app) ->
 
   flux.actions.socket.setStatus 'connecting..'
 
+  ## handle socket.io events
   socket.on 'connect', ->
     console.log 'connect'
     flux.actions.socket.setStatus 'connecting'
@@ -17,6 +18,8 @@ module.exports = (app) ->
   socket.on 'chat', (data) ->
     flux.actions.chatLog.add data
 
+
+  ## public methods for actions
   send: (msg) ->
     return if msg.body?.length < 1 or msg.name?.length < 1
     socket.emit 'chat',

@@ -14,6 +14,6 @@ module.exports = (app) ->
       logs: @logs
 
     addLog: (log) ->
-      log._id ||= Date.now()
+      log._id ||= Date.now()  # for react-key
       @logs.unshift log
       @emit 'change'
