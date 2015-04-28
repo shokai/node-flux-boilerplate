@@ -3,7 +3,8 @@ Fluxxor = require 'fluxxor'
 socket  = require('socket.io-client').connect "#{location.protocol}//#{location.host}"
 
 app =
-  socket: socket
+  socket:
+    io: socket
   pkg: require '../package.json'
 
 ## flux = stores, actions
@@ -13,7 +14,7 @@ app.flux = new Fluxxor.Flux
 , require('./actions/actions')(app)
 
 ## Other Components
-require('./sockets/chat')(app)
+app.socket.chat = require('./sockets/chat')(app)
 
 ## View
 View = require './views/main'

@@ -6,10 +6,7 @@ module.exports = (app) ->
 
   chat:
     send: (msg) ->
-      return if msg.body?.length < 1 or msg.name?.length < 1
-      socket.emit 'chat',
-        from: msg.name
-        body: msg.body
+      app.socket.chat.send msg
 
   chatLog:
     add: (log) ->
