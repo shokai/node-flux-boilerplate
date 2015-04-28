@@ -22,9 +22,7 @@ module.exports = React.createClass
       <h1>{title}</h1>
       <SocketStatus
        status={@state.socket.status} />
-      <ChatInput
-       name={@state.chat.name}
-       body={@state.chat.body} />
+      <ChatInput />
       <ChatLog
        logs={@state.chat.logs} />
     </div>

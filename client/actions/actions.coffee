@@ -2,16 +2,14 @@
 
 module.exports = (app) ->
 
-  chatInput:
-    send: (chatData) ->
-      @dispatch 'send-chat', chatData
-      @dispatch 'clear-chat-body'
+  socket = app.socket
 
-    setName: (name) ->
-      @dispatch 'set-chat-name', name
-
-    setBody: (body) ->
-      @dispatch 'set-chat-body', body
+  chat:
+    send: (msg) ->
+      return if msg.body?.length < 1 or msg.name?.length < 1
+      socket.emit 'chat',
+        from: msg.name
+        body: msg.body
 
   chatLog:
     add: (log) ->

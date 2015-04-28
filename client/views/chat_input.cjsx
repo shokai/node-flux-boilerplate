@@ -18,37 +18,50 @@ module.exports = React.createClass
     Fluxxor.FluxMixin React
   ]
 
+  getInitialState: ->
+    name: 'NoName'
+    body: 'hello!'
+
   render: ->
     <div>
       <input
        type="text"
        onChange={@_onNameChange}
-       value={@props.name}
+       value={@state.name}
        style={mix style.input, style.input_name} />
       <input
        type="text"
        onChange={@_onBodyChange}
        onKeyDown={@_onKeyDown}
-       value={@props.body}
+       value={@state.body}
        style={mix style.input, style.input_body} />
       <input
        type="button"
        value="send"
-       onClick={@_onSendClick}
-       disabled={@props.name?.length is 0 or @props.body?.length is 0}
+       onClick={@_send}
+       disabled={!@_hasValidNameAndBody()}
        style={style.input} />
     </div>
 
   _onNameChange: (e) ->
-    @getFlux().actions.chatInput.setName e.target.value
+    @setState
+      name: e.target.value
 
   _onBodyChange: (e) ->
-    @getFlux().actions.chatInput.setBody e.target.value
+    @setState
+      body: e.target.value
+
+  _hasValidNameAndBody: ->
+    @state.name?.length > 0 and @state.body?.length > 0
+
+  _send: ->
+    return unless @_hasValidNameAndBody()
+    @getFlux().actions.chat.send
+      name: @state.name
+      body: @state.body
+    @setState
+      body: ''
 
   _onKeyDown: (e) ->
     if e.keyCode is 13 # enter key
-      @getFlux().actions.chatInput.send()
-
-  _onSendClick: (e) ->
-    @getFlux().actions.chatInput.send()
-
+      @_send()
