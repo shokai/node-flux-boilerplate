@@ -3,6 +3,16 @@
 React   = require 'react'
 Fluxxor = require 'fluxxor'
 
+mix = require('./util').mix
+
+style =
+  input:
+    fontSize: 12
+  input_name:
+    width: 100
+  input_body:
+    width: 300
+
 module.exports = React.createClass
   mixins: [
     Fluxxor.FluxMixin React
@@ -13,17 +23,20 @@ module.exports = React.createClass
       <input
        type="text"
        onChange={@_onNameChange}
-       value={@props.name} />
+       value={@props.name}
+       style={mix style.input, style.input_name} />
       <input
        type="text"
        onChange={@_onBodyChange}
        onKeyDown={@_onKeyDown}
-       value={@props.body} />
+       value={@props.body}
+       style={mix style.input, style.input_body} />
       <input
        type="button"
        value="send"
        onClick={@_onSendClick}
-       disabled={@props.name?.length is 0 or @props.body?.length is 0} />
+       disabled={@props.name?.length is 0 or @props.body?.length is 0}
+       style={style.input} />
     </div>
 
   _onNameChange: (e) ->

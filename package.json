@@ -35,6 +35,7 @@
     "grunt-notify": "*",
     "grunt-simple-mocha": "*",
     "jade": "*",
+    "lodash": "*",
     "mocha": "*",
     "mongoose": "^4.0",
     "react": "^0.13.2",
