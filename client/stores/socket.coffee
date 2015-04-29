@@ -4,8 +4,6 @@ Fluxxor = require 'fluxxor'
 
 module.exports = (app) ->
 
-  socket = app.socket
-
   Fluxxor.createStore
 
     initialize: ->
