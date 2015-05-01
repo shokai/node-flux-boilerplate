@@ -7,15 +7,16 @@
   "scripts": {
     "start": "coffee server/app.coffee",
     "build": "grunt build",
-    "test": "grunt test",
-    "watch": "grunt watch"
+    "watchify": "watchify --verbose --debug --extension=.cjsx --extension=.coffee -t coffee-reactify client/app.cjsx -o public/js/bundle.js",
+    "test": "grunt"
   },
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
   "dependencies": {
     "body-parser": "*",
+    "browserify": "*",
     "coffee-errors": "*",
-    "coffee-reactify": "^3.0",
+    "coffee-reactify": "*",
     "coffee-script": "^1.9",
     "coffeelint": "*",
     "connect-mongo": "*",
@@ -25,12 +26,11 @@
     "express-session": "*",
     "fluxxor": "^1.5.3",
     "grunt": "*",
-    "grunt-browserify": "^3.7",
+    "grunt-browserify": "*",
     "grunt-cli": "*",
     "grunt-coffeelint": "*",
     "grunt-contrib-csslint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*",
     "grunt-jsonlint": "*",
     "grunt-notify": "*",
     "grunt-simple-mocha": "*",
@@ -41,7 +41,8 @@
     "react": "^0.13.2",
     "socket.io": "^1.3",
     "socket.io-client": "^1.3",
-    "supertest": "*"
+    "supertest": "*",
+    "watchify": "*"
   },
   "repository": {
     "type": "git",

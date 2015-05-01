@@ -26,19 +26,22 @@ REQUIREMENTS
 - MongoDB v2.x
 
 
-BUILD CLIENT-JS
+BUILD CLIENT-JS&JSX
 ---------------
 
     % npm install
-    % npm build
+    % npm run build
 
-    # or
-    % npm run watch
+    # watch client jsx, then build
+    % npm run watchify
+
+    # to deploy, minify js
+    % NODE_ENV=production npm run build
 
 RUN
 ---
 
-    % npm install
+    # start server at port:3000
     % PORT=3000 DEBUG=chat* npm start
 
 
