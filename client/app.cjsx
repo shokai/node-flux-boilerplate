@@ -1,6 +1,7 @@
-React   = require 'react'
-Fluxxor = require 'fluxxor'
-socket  = require('socket.io-client').connect "#{location.protocol}//#{location.host}"
+React    = require 'react'
+ReactDOM = require 'react-dom'
+Fluxxor  = require 'fluxxor'
+socket   = require('socket.io-client').connect "#{location.protocol}//#{location.host}"
 
 app =
   socket:
@@ -19,5 +20,5 @@ app.socket.chat = require('./sockets/chat')(app)
 ## View
 View = require './views/main'
 
-React.render <View flux={app.flux} />
+ReactDOM.render <View flux={app.flux} />
 , document.getElementById 'app-container'
