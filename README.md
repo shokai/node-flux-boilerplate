@@ -9,9 +9,9 @@ react+fluxxor+socket.io chat
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 - coffee-script
-- express 4.12.x
+- express 4.13.x
 - socket.io 1.3.x
-- React + Fluxxor + Browserify
+- React 1.4 + Fluxxor 1.7 + Browserify
 - mongoose + connect-mongo
 - jade
 - grunt + coffeelint + mocha + supertest
