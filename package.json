@@ -1,50 +1,11 @@
 {
   "name": "node-flux-boilerplate",
+  "author": "Sho Hashimoto <hashimoto@shokai.org>",
+  "license": "MIT",
   "private": true,
   "version": "0.0.1",
   "description": "react+fluxxor+socket.io chat",
-  "main": "server/app.coffee",
-  "scripts": {
-    "start": "coffee server/app.coffee",
-    "build": "grunt build",
-    "watchify": "watchify --verbose --debug --extension=.cjsx --extension=.coffee -t coffee-reactify client/app.cjsx -o public/js/bundle.js",
-    "test": "grunt"
-  },
-  "author": "Sho Hashimoto <hashimoto@shokai.org>",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "*",
-    "browserify": "*",
-    "coffee-errors": "*",
-    "coffee-reactify": "*",
-    "coffee-script": "^1.10",
-    "coffeelint": "*",
-    "connect-mongo": "*",
-    "cookie-parser": "*",
-    "debug": "*",
-    "express": "^4.13",
-    "express-session": "*",
-    "fluxxor": "^1.7.3",
-    "grunt": "*",
-    "grunt-browserify": "*",
-    "grunt-cli": "*",
-    "grunt-coffeelint": "*",
-    "grunt-contrib-csslint": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-jsonlint": "*",
-    "grunt-notify": "*",
-    "grunt-simple-mocha": "*",
-    "jade": "*",
-    "lodash": "*",
-    "mocha": "*",
-    "mongoose": "^4.2",
-    "react": "^0.14",
-    "react-dom": "^0.14",
-    "socket.io": "^1.3",
-    "socket.io-client": "^1.3",
-    "supertest": "*",
-    "watchify": "*"
-  },
+  "main": "server/app.es6",
   "repository": {
     "type": "git",
     "url": "git://github.com/shokai/node-flux-boilerplate.git"
@@ -61,10 +22,54 @@
   },
   "homepage": "https://github.com/shokai/node-flux-boilerplate",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "engines": {
-    "node": "0.12.x",
-    "npm": "2.7.x"
+    "node": "4.x",
+    "npm": "2.14.x"
+  },
+  "scripts": {
+    "start": "babel-node server/app.es6",
+    "build": "browserify --extension=.es6 --extension=.jsx -t babelify client/app.jsx | uglifyjs -o public/js/bundle.js",
+    "build:watch": "watchify --verbose --debug --extension=.es6 --extension=.jsx -t babelify client/app.jsx -o public/js/bundle.js",
+    "eslint": "eslint server/**/*.es6 client/**/*.es6 client/**/*.jsx bin/**/*.es6 test/**/*.es6",
+    "jsonlint": "jsonlint *.json --quiet",
+    "csslint": "csslint public/**/*.css --quiet",
+    "mocha": "mocha test/test_*.es6 --compilers js:babel/register",
+    "test": "npm run eslint && npm run jsonlint && npm run csslint && npm run mocha",
+    "test:watch": "chokidar '(server|client)/**.(es6|js|jsx|css|jade)' -c 'npm run test'",
+    "watch": "parallelshell 'npm run build:watch' 'npm run test:watch'"
+  },
+  "dependencies": {
+    "babel": "~5",
+    "babelify": "*",
+    "body-parser": "*",
+    "browserify": "*",
+    "connect-mongo": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "express": "^4.13",
+    "express-session": "*",
+    "fluxxor": "^1.7.3",
+    "jade": "*",
+    "lodash": "*",
+    "mongoose": "^4.2",
+    "react": "^0.14",
+    "react-dom": "^0.14",
+    "socket.io": "^1.3",
+    "socket.io-client": "^1.3",
+    "uglify-js": "*"
+  },
+  "devDependencies": {
+    "babel-eslint": "*",
+    "chokidar-cli": "*",
+    "csslint": "*",
+    "eslint": "^1.8",
+    "eslint-plugin-react": "*",
+    "jsonlint": "*",
+    "mocha": "*",
+    "parallelshell": "*",
+    "supertest": "*",
+    "watchify": "*"
   }
 }

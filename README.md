@@ -8,13 +8,13 @@ react+fluxxor+socket.io chat
 [![Build Status](https://travis-ci.org/shokai/node-flux-boilerplate.svg?branch=master)](https://travis-ci.org/shokai/node-flux-boilerplate)
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-- coffee-script
+- ES6(babel) + ESLint
 - express 4.13.x
 - socket.io 1.3.x
-- React 1.4 + Fluxxor 1.7 + Browserify
+- React 0.14 + Fluxxor 1.7 + Browserify
 - mongoose + connect-mongo
 - jade
-- grunt + coffeelint + mocha + supertest
+- mocha + supertest
 - Heroku
 - Travis CI
 
@@ -22,37 +22,30 @@ react+fluxxor+socket.io chat
 REQUIREMENTS
 ------------
 
-- Node.js v0.12.x
-- MongoDB v2.x
+- Node.js v4.x
+- MongoDB v3.x
 
 
-BUILD CLIENT-JS&JSX
----------------
+DEVELOP
+-------
 
-    % npm install
-    % npm run build
-
-    # watch client jsx, then build
-    % npm run watchify
-
-    # to deploy, minify js
-    % NODE_ENV=production npm run build
-
-RUN
----
-
-    # start server at port:3000
+    % npm run watch
     % PORT=3000 DEBUG=chat* npm start
 
+DEPLOY
+------
+
+    % export NODE_ENV=production
+    % npm run build
+    % PORT=3000 DEBUG=chat* npm start
 
 TEST & LINT
 -----------
 
     % npm test
 
-
-DEPLOY
-------
+DEPLOY to Heroku
+----------------
 
 ### create app
 
