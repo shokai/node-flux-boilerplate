@@ -36,7 +36,7 @@
     "jsonlint": "jsonlint *.json --quiet",
     "csslint": "csslint public/**/*.css --quiet",
     "mocha": "mocha test/test_*.es6 --compilers js:babel/register",
-    "test": "npm run eslint && npm run jsonlint && npm run csslint && npm run mocha",
+    "test": "npm run eslint && npm run csslint && npm run jsonlint && npm run mocha",
     "test:watch": "chokidar '(server|client)/**.(es6|js|jsx|css|jade)' -c 'npm run test'",
     "watch": "parallelshell 'npm run build:watch' 'npm run test:watch'"
   },
