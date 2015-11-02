@@ -62,10 +62,11 @@ var components = {
 
 for(let type in components){
   let items = components[type];
-  for(let item of items){
-    debug(`load ${type}/${item}`);
-    require(path.join(__dirname, type, item))(router);
-  }
+  items.forEach(function(item){
+    let path = `./${type}/${item}`;
+    debug(`load ${path}`);
+    require(path).default(router);
+  });
 }
 
 mongoose.connect(mongodb_uri, function(err){
