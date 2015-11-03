@@ -16,7 +16,7 @@ export default function(router){
       debug(data);
       var message = new Message(data);
       message.save(function(err, data){
-        if(err) return debug(err);
+        if(err) return debug(err.toString());
         io.sockets.emit("chat", data); // broadcast
       });
     });
