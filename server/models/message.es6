@@ -7,7 +7,7 @@ export default function(router){
   var messageSchema = new mongoose.Schema({
     from: String,
     body: String,
-    creted_at: {
+    created_at: {
       type: Date,
       default: Date.now
     }
