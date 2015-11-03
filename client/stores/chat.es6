@@ -18,7 +18,7 @@ export default function(app){
     },
 
     addLog: function(log){
-      if(!log._id) log._id = Date.now()  // for react-key
+      if(!log._id) log._id = Date.now();  // for react-key
       this.logs.unshift(log);
       this.emit("change");
     }
