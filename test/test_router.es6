@@ -36,4 +36,24 @@ describe("model \"Message\"", function(){
       });
     });
   });
+
+  describe("method \"save\"", function(){
+
+    it("should not save empty \"name\"", function(done){
+      var msg = new Message({from: "", body: "hi"});
+      msg.save(function(err, data){
+        assert.equal(!err, false);
+        done();
+      });
+    });
+
+    it("should not save empty \"body\"", function(done){
+      var msg = new Message({from: "shokai", body: ""});
+      msg.save(function(err, data){
+        assert.equal(!err, false);
+        done();
+      });
+    });
+
+  });
 });
