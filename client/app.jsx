@@ -16,12 +16,12 @@ var app = {
 
 // flux = stores, actions
 app.flux = new Fluxxor.Flux({
-  Chat:   new (require("./stores/chat")(app)),
-  Socket: new (require("./stores/socket")(app))
-}, require("./actions/actions")(app));
+  Chat:   new (require("./stores/chat").default(app)),
+  Socket: new (require("./stores/socket").default(app))
+}, require("./actions/actions").default(app));
 
 // Other Components
-app.socket.chat = require("./sockets/chat")(app);
+app.socket.chat = require("./sockets/chat").default(app);
 
 // View
 var View = require("./views/main");
